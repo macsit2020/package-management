@@ -1,0 +1,305 @@
+
+jenkins-master-smtp
+
+"Statement": [{"Effect":"Allow","Action":"ses:SendRawEmail","Resource":"*"}]
+
+SMTP Username:
+AKIASLKGMPCGWIYJH2FG
+SMTP Password:
+BH2Em7hd2uRF9294Qyri8deD0zYxrZm1cEwOIiwxNikB
+
+Caution  :
+  Network Marketing  --- 2006 - 600,000
+    ACCA 
+       = 90  = 500
+  e-money --- 40%  = 100,000 = 60, 000FRS
+
+  275,000  
+  12
+
+Jenkins, is an open source Continuous Integration
+         and cross-platform tool written in Java. 
+  Platform:   
+			Linux--> Redhat, UBUNTU
+			Windows
+			MacOS-
+ 
+MINIMUN OF 5 YEARS WORK EXPERIENCE  -
+
+    Time on the help desk 
+       20 hours   
+    
+    
+HUDSON --> 2004 -- > Oracle
+If a user encounters a problem using jenkins:
+
+    2011 --> JENKINS Community --> Jenkins
+ 
+ Jenkins:
+    Continuous Integration  
+      Automating the build and test process in our projects
+
+     Maven-web-app --> java
+       Code -->Git-->Maven
+                      (validates, compiles, tests, package)
+                         Target env't (Tomcat)
+
+    Continuous Delivery
+    Continuous Deployment
+   
+code--> build-->test-->UAT/testing/STAGING-->Manual-Approval-->Prod 
+                                           Continuous Delivery
+
+                            boa / td / Barclays 
+                                           
+code--> build-->test-->UAT/testing/STAGING-->auto-->Prod 
+                                Continuous Deployment
+
+                           tomcat-testing
+
+
+      Development
+      Stage/Test/UAT/Pre-Prod
+      Production
+
+ YES:
+
+ Internal projects: In house  --> Continuous Deployment
+ 
+ External projects: Clients  ---> Continuous Delivery
+ 
+ Which edition of jenkins have you used in Production?
+   Community Edition (CE)
+       Jenkins
+   ENTERPRISE ENTERPRISE -EE
+       CloudBees Jenkins
+
+ Installation of :  Community Edition (CE)
+ 
+        http://34.229.208.200:8080/
+        
+ Installation of CloudBees Jenkins: ENTERPRISE ENTERPRISE -EE
+ 
+        http://3.238.130.50:8080/
+==================================================
+#!/bin/bash
+# Author: Prof Legah
+# date: 25/08/2020
+# Installing Jenkins on RHEL 7/8, CentOS 7/8 or Amazon Linux OS
+# You can execute this script as user-data when launching your EC2 VM.
+cd /opt
+# 1. Install Java and other pre-requisits
+sudo yum -y install unzip wget tree git
+sudo wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm
+sudo yum install jdk-8u131-linux-x64.rpm -y
+# 2. Add Jenkins Repository and  Install
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+
+sudo cd /etc/yum.repos.d/
+
+sudo curl -O https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo yum -y install jenkins
+sudo systemctl start jenkins
+sudo systemctl enable jenkins
+sudo systemctl status jenkins
+====================================================
+https://www.jenkins.io/doc/book/installing/windows/
+
+ http://18.212.53.48:8080/
+
+ mvn package 
+
+td- online banking  web application: 
+github: 
+    organisation -- LandmakTechnology
+    team 
+    repository  -- maven-web-application
+
+https://github.com/LandmakTechnology/maven-web-application
+
+https://github.com/LandmakTechnology/maven-web-app
+  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
+
+project -- java-web-app
+Build Now
+Build Triggers :
+  build Periodically -- * * * * * -- TIMER 
+                        database backup contacts
+  Poll SCM -- CHANGES IN THE SOURCE CODE -- Commit IDS
+    H * * * *
+  GitHub hook trigger -- CHANGES IN THE SOURCE CODE
+   http://3.226.251.169:8080/github-webhook/
+
+  uptime
+   
+1. Jenkins-Github Integration:
+  1. INSTALL GIT in Jenkins or 
+     Configure git plugin in Jenkins
+  2. Create credentials to access code in Guthub
+
+2. Jenkins-Maven integration: clean package
+  1. go to  Manage Jenkins
+       go to Global Tool Configuration
+           maven3.8.4 
+           maven3.6.0 
+         choose maven version  maven  
+
+  2. Build and invoke top maven target 
+
+3. Jenkins SonarQube Integration;  mvn sonar:sonar :
+----------------------------------------------  
+ 1. modify 'Properties' tag with SonarQube server details in  pom.xml
+    vi pom.xml:
+      <Property>
+        <sonar.host.url>http://3.238.135.186:9000/</sonar.host.url>
+		<sonar.login>admin</sonar.login>
+		<sonar.password>admin</sonar.password>
+      </Property>
+ 2. Open required ports (9000) in SonarQube server to allow traffic from jenkins server
+ 
+    or Install and configure JaCoCo plugin in Jenkins UI
+
+  Jenkins:
+    git--test--build--CodeQuality-- 
+
+    pom.xml 
+       JUnits 
+       selenium 
+ 
+Jenkins Nexus Integration;  mvn deploy:
+Upload build artifacts:
+--------------------------------------
+1. Create repos in nexus-UI to upload artifacts
+      
+      http://54.89.142.136:8000/repository/td-web-app-snapshots/ 
+      http://54.89.142.136:8000/repository/td-web-app-releases/
+
+      Building /var/lib/jenkins/  workspace/ebay-java-app
+
+cd /var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/maven3.8.1
+
+
+   2. modify 'distributionManagement' tag with nexus repos details  in  pom.xml
+        vi pom.xml
+            <distributionManagement>
+      http://44.192.81.238:8888/mylandmarktech/repository/ebay-java-app-snapshot/
+
+      http://44.192.81.238:8888/mylandmarktech/repository/ebay-java-app-releases/
+             </distributionManagement>
+             
+   3. modify /maven/conf/setting.xml in maven (JENKINS) server with login credentials
+        
+         # vi /nexus/conf/setting.xml
+            <server>
+                <id>nexus</id>
+                <username>admin</username>
+                <password>admin@123</password>
+            </server> 
+    4. Open required ports in Nexus server to allow traffic from jenkins server
+    
+ JENKINS-TOMCAT INTEGRATION:
+============================= 
+1. INSTALL 'Deploy to container' Plugin on Jenkins UI
+2. ADD A TOMCAT USER in /tomcat9/conf/tomcat-users.xml 
+   vi /tomcat9/conf/tomcat-users.xml
+
+vim /opt/tomcat9/conf/server.xml
+vi /opt/tomcat9/webapps/manager/META-INF/context.xml
+
+vi /opt/tomcat9/conf/tomcat-users.xml 
+
+ Accessing tomcat:  http://44.192.107.173:8080/
+ Deploying applications in tomcat: no 
+
+<user username="landmark" password="admin123" roles="manager-gui,admin-gui,manager-script"/>
+
+<user username="class26" password="admin123" roles="manager-gui,admin-gui"/>
+
+  RBAC: Role based access control 
+
+    Landmark or 
+    landmark and  admin123
+    Landmarktechnology
+
+  myapps.war
+contextPath:
+  http://44.192.107.173:8080/myapps 
+
+
+    assign roles: manager-gui, admin-gui, manager-script
+
+http://44.192.107.173:8080/
+
+3. Open required ports in tomcat server to allow traffic from jenkins server
+--------------------------------------
+
+Trigger a new build and identify updated files? : IQ
+
+How did you configure Jenkins for email notification?
+walk me through your Jenkins email notification Configuration?
+
+  1. Email Notifications 
+Configuring SMTP Server in Jenkins
+----------------------------------
+1. Log into Jenkins server UI  = http://18.212.53.48:8080/
+   install email notification plugin - 
+     Jenkins--> Manage-Jenkins-Manage-plugins
+     1. Jenkins--> Manage-Jenkins-->Configure-->Editable Email and configure
+     2. Configure email notification for required jobs:
+  
+  SMTP = simple mail transfer protocol servers
+  smtp.gmail.com 
+  td-project@gmail.com 
+  admin@123
+    receipients:
+      all Developers 
+
+Walk me through how build and deployment are effected in your projects?
+
+Automating build process (jobs) in Jenkins:
+------------------------------------------
+    Build Now --- Manual
+    Automated Builds:
+      Build Periodically -- builds are Scheduled based specific time interval 
+         30 0 1 * *
+         H * * * *   - EVERY HOUR 
+         * * * * *   - EVERY MINUTE
+              jenkins --PULL--MAVEN--SO
+
+         jobs: database backup / 
+               monitoring 
+               patching / updates   
+sudo timedatectl set-timezone America/New_York
+https://github.com/LandmakTechnology/maven-web-app/edit/master/src/main/webapp/jsps/home.jsp
+
+      Poll SCM ---> Jenkins will qwery Github project repository at 
+                    specific time interval and check for new commits/versions 
+                    Jenkins pull changes 
+         H * * * *   - EVERY HOUR 
+         * * * * *   - EVERY MINUTE  
+
+      Github-Webhook
+         Github will push to changes to jenkins 
+         http://jenkinsIP:portNumber/github-webhook/
+         http://18.212.53.48:8080/github-webhook/ 
+            Which events would you like to trigger this webhook?
+                new branch created 
+                new commits / version 
+
+
+      Build other projects:
+         Continuous integration job: 
+           build and release 
+              Developers + Git + Jenkins + maven + SonarQube + Nexus 
+         Continuous Delivery job:  
+           deployment with Manual approval   
+             deploys in STAGING + 
+                           Manual approval 
+                                 deploys Production 
+         Continuous monitoring:
+
+
+    
+What is the difference b/w Build Periodically and Poll SCM 
+=================================================================
+
